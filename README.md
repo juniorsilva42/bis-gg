@@ -1,5 +1,5 @@
 # BIS(G²) - Trabalho 1 / 3 
-#### Disciplina: Teoria dos Grafos
+Disciplina: Teoria dos Grafos    
 Docente: Dr. Felipe Francisco      
 Discente: Ivanicio Junior  
 Matrícula: 17202004

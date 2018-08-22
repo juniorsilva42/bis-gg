@@ -2,17 +2,17 @@ package br.com.bisgg.graph;
 
 public class Node {
 
-    private String name;
+    private int identifier;
 
-    public Node(final String name) {
-        this.name = name;
+    public Node(final int identifier) {
+        this.identifier = identifier;
     }
 
-    public String getName() {
-        return name;
+    public int getIdentifier () {
+        return identifier;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(int identifier) {
+        this.identifier = identifier;
     }
 }

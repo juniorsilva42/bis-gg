@@ -2,9 +2,9 @@ package br.com.bisgg.graph;
 
 public class Edges {
 
-    private final Node from, to;
+    private final int from, to;
 
-    public Edges (Node from, Node to) {
+    public Edges (int from, int to) {
         this.from = from;
         this.to = to;
     }

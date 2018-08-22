@@ -31,6 +31,8 @@ public class Eloquent extends Persistencia {
 
     public void getGraphData () throws IOException, ClassNotFoundException {
 
+        LinkedList<Object> retorna = null;
+
         try {
 
             LinkedList<String> graph_data = this.readGraphFile();
@@ -75,10 +77,12 @@ public class Eloquent extends Persistencia {
                     } else {
                         int node_origin = Integer.parseInt(adjacencia[0]);
                         int node_destination = Integer.parseInt(adjacencia[1]);
+
+                        Graph graph = new Graph(nodes, edges);
                     }
 
                     if (error)
-                        System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição "+indexOfError+" do arquivo.\n=> G("+graph_data.get(lineOfError)+", ?)");
+                        System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição " + indexOfError + " do arquivo.\n=> G(" + graph_data.get(lineOfError) + ", ?)");
                 }
             }
         } catch (ClassNotFoundException e) {

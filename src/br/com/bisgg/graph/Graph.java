@@ -2,27 +2,27 @@ package br.com.bisgg.graph;
 
 public class Graph {
 
-    private int edges;
-    private int nodes;
+    private Edges edges;
+    private Node nodes;
 
-    public Graph (int nodes, int edges) {
+    public Graph (Node nodes, Edges edges) {
         this.nodes = nodes;
         this.edges = edges;
     }
 
-    public int getEdges() {
+    public Edges getEdges() {
         return edges;
     }
 
-    public void setEdges(int edges) {
+    public void setEdges(Edges edges) {
         this.edges = edges;
     }
 
-    public int getNodes() {
+    public Node getNodes() {
         return nodes;
     }
 
-    public void setNodes(int nodes) {
+    public void setNodes(Node nodes) {
         this.nodes = nodes;
     }
 }

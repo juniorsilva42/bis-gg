@@ -1,4 +1,5 @@
 import br.com.bisgg.graph.Eloquent;
+import br.com.bisgg.graph.Node;
 import br.com.bisgg.persistencia.Persistencia;
 
 import java.io.IOException;
@@ -9,9 +10,22 @@ public class Start {
     public static void main (String[] args) throws ClassNotFoundException, IOException {
 
         //new Start();
+
+        Node n1 = new Node("1");
+        Node n2 = new Node("2");
+        Node n3 = new Node("3");
+        Node n4 = new Node("4");
+        Node n5 = new Node("5");
+        Node n6 = new Node("6");
+        Node n7 = new Node("7");
+        Node n8 = new Node("8");
+        Node n9 = new Node("9");
+        Node n10 = new Node("10");
+
+
+
         Eloquent eloquent = new Eloquent("graph_data_test");
         eloquent.getGraphData();
-
     }
 
     public Start() throws ClassNotFoundException {

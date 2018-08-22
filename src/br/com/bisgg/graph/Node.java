@@ -1,10 +1,10 @@
 package br.com.bisgg.graph;
 
-public class Nodes {
+public class Node {
 
     private String name;
 
-    public Nodes (final String name) {
+    public Node(final String name) {
         this.name = name;
     }
 

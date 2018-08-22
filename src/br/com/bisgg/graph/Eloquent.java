@@ -81,10 +81,6 @@ public class Eloquent extends Persistencia {
                         System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição "+indexOfError+" do arquivo.\n=> G("+graph_data.get(lineOfError)+", ?)");
                 }
             }
-
-            Graph graph = new Graph(nodes, edges);
-            System.out.println(graph.getNodes());
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

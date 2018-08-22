@@ -2,7 +2,6 @@ import br.com.bisgg.graph.Eloquent;
 import br.com.bisgg.persistencia.Persistencia;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Start {

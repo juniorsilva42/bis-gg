@@ -4,15 +4,10 @@ public class Graph {
 
     private int edges;
     private int nodes;
-    private int[][] matrizAdjacencia;
 
     public Graph (int nodes, int edges) {
         this.nodes = nodes;
         this.edges = edges;
-    }
-
-    public void setGraph (int i, int j, int value) {
-        this.matrizAdjacencia[i][j] = value;
     }
 
     public int getEdges() {

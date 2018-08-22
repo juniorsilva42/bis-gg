@@ -19,5 +19,5 @@ public interface PersistenciaInterface {
 	 * @throws IOException 
 	 * 
 	 */
-	public LinkedList<Object> get (String fileName) throws IOException, ClassNotFoundException;
+	public LinkedList<String> get (String fileName) throws IOException, ClassNotFoundException;
 }

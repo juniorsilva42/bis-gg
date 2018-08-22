@@ -20,12 +20,12 @@ public class Persistencia implements PersistenciaInterface {
 	 * @return Object
 	 *
 	 * */
-	public LinkedList<Object> get (String fileName) throws IOException, ClassNotFoundException {
+	public LinkedList<String> get (String fileName) throws IOException, ClassNotFoundException {
 
 		BufferedReader br = null;
 		FileReader fr = null;
 
-		LinkedList<Object> objects = new LinkedList<>();
+		LinkedList<String> objects = new LinkedList<>();
 
 		try {
 			fr = new FileReader(dir+fileName+ext);

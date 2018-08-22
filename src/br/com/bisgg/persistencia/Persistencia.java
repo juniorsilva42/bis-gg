@@ -65,7 +65,7 @@ public class Persistencia implements PersistenciaInterface, Serializable {
 			is = new FileInputStream(dir+fileName+ext);
 			ois  = new ObjectInputStream(is);
 
-			o = ois.readObject();
+			o = ois.readLine();
 		} catch (FileNotFoundException e) {
 			System.out.println("[System log]:\n "+e);
 		}

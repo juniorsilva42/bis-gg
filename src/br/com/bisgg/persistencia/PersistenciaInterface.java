@@ -1,23 +1,14 @@
 package br.com.bisgg.persistencia;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  * @author Ivanicio Jr <jsiilva@outlook.com.br>
  *
  */
 public interface PersistenciaInterface {
-	
-	/**
-	 * 
-	 * Método para salvar um determinado objeto em um arquivo
-	 * @author Ivanicio Jr
-	 * @param String name, Object o
-	 * @throws IOException 
-	 * 
-	 */
-	public void save (String fileName, Object o) throws IOException;
-	
+
 	/**
 	 * 
 	 * Método para obter os objetos objeto em um dado arquivo
@@ -28,5 +19,5 @@ public interface PersistenciaInterface {
 	 * @throws IOException 
 	 * 
 	 */
-	public Object get (String fileName) throws IOException, ClassNotFoundException;
+	public LinkedList<Object> get (String fileName) throws IOException, ClassNotFoundException;
 }

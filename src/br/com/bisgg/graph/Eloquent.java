@@ -7,41 +7,39 @@ import java.util.LinkedList;
 
 public class Eloquent extends Persistencia {
 
-    private final String graph_data_test_1 = "graph_data_test_1";
-    private final String graph_data_test_2 = "graph_data_test_2";
-    private final String graph_data_test_3 = "graph_data_test_3";
-    private final String graph_data_test_4 = "graph_data_test_4";
+    private String graph_file;
 
-    public LinkedList<Integer> getGraphData (String file) throws IOException, ClassNotFoundException {
+    public Eloquent (String graphFile) {
+        this.graph_file = graphFile;
+    }
 
-        Object o;
-        LinkedList<Integer> graph = null;
+    private LinkedList<Object> readGraphFile () throws IOException, ClassNotFoundException {
+
+        LinkedList<Object> objects = new LinkedList<>();
 
         try {
-            // Se o arquivo de produtos não é vazio, ele obtem os objetos do mesmo, caso inverso, retorna o valor padrão nulo
-            if (!this.isEmpty(file)) {
-                o = this.get(file);
-                graph = (LinkedList<Integer>) o;
-            }
+            // Se o arquivo de dados do grafo não é vazio, ele obtem os objetos, caso inverso, retorna o valor padrão nulo
+            if (!this.isEmpty(this.graph_file))
+                objects = this.get(this.graph_file);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return graph;
+       return objects;
     }
 
-    public void readGraphFile (String file) throws IOException, ClassNotFoundException {
+    public void getGraphData () throws IOException, ClassNotFoundException {
 
-        if (!this.isEmpty(file)) {
+        try {
 
-            try {
+            LinkedList<Object> graph_data = this.readGraphFile();
 
-                LinkedList<Integer> graph_data = this.getGraphData(file);
+            for (int i = 0; i < graph_data.size(); i++)
+                System.out.println(graph_data.get(i));
 
-
-            } catch (ClassNotFoundException e) {
-                System.out.println(e);
-            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

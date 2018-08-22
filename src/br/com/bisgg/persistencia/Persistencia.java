@@ -1,49 +1,14 @@
 package br.com.bisgg.persistencia;
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
 
-public class Persistencia implements PersistenciaInterface, Serializable {
-
-	private static final long serialVersionUID = -8750124577151351713L;
+public class Persistencia implements PersistenciaInterface {
 
 	private String ext = ".txt";
 	private String dir = "data/";
-
-	/*
-	*
-	* Procedimento para salvar um dado objeto em um arquivo
-	*
-	* @arguments String filename, Object o
-	* FileName: Nome do arquivo a ser gravado
-	* o: Objeto a ser gravado
-	*
-	* @return void
-	*
-	* */
-	public void save (String fileName, Object o) throws IOException {
-		OutputStream os = null;
-		ObjectOutputStream oos = null;
-
-		try {
-
-			os = new FileOutputStream(dir+fileName+ext);
-			oos = new ObjectOutputStream(os);
-
-			// Escreve o objeto serializado no arquivo de dados especificado por argumento.
-			oos.writeObject(o);
-
-			oos.flush();
-			oos.close();
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		finally {
-			if (os != null) {
-				os.flush();
-				os.close();
-			}
-		}
-	}
 
 	/*
 	 *
@@ -55,30 +20,40 @@ public class Persistencia implements PersistenciaInterface, Serializable {
 	 * @return Object
 	 *
 	 * */
-	public Object get (String fileName) throws IOException, ClassNotFoundException {
+	public LinkedList<Object> get (String fileName) throws IOException, ClassNotFoundException {
 
-		InputStream is = null;
-		Object o = null;
-		ObjectInputStream ois = null;
+		BufferedReader br = null;
+		FileReader fr = null;
+
+		LinkedList<Object> objects = new LinkedList<>();
 
 		try {
-			is = new FileInputStream(dir+fileName+ext);
-			ois  = new ObjectInputStream(is);
+			fr = new FileReader(dir+fileName+ext);
+			br = new BufferedReader(fr);
 
-			o = ois.readLine();
+			String line = br.readLine();
+
+			while (line != null) {
+				objects.add(line);
+				line = br.readLine();
+			}
+
 		} catch (FileNotFoundException e) {
-			System.out.println("[System log]:\n "+e);
+			e.printStackTrace();
 		}
 		finally {
 			try {
-				ois.close();
-				is.close();
+				if (br != null)
+					br.close();
+
+				if (fr != null)
+					fr.close();
 			} catch (IOException e) {
-				System.out.println("Ocorreu um erro fatal enquanto o canal de arquivos tentava fechar. => \n"+e);
+				e.printStackTrace();
 			}
 		}
 
-		return o;
+		return objects;
 	}
 
 	/*

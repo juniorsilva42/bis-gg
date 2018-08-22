@@ -15,11 +15,19 @@ public class Graph {
         this.matrizAdjacencia[i][j] = value;
     }
 
-    public int getEdges () {
-        return this.edges;
+    public int getEdges() {
+        return edges;
     }
 
-    public int getNodes () {
-        return this.edges;
+    public void setEdges(int edges) {
+        this.edges = edges;
+    }
+
+    public int getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(int nodes) {
+        this.nodes = nodes;
     }
 }

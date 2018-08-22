@@ -1,10 +1,18 @@
+import br.com.bisgg.graph.Eloquent;
+import br.com.bisgg.persistencia.Persistencia;
+
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Start {
 
-    public static void main (String[] args) throws ClassNotFoundException {
+    public static void main (String[] args) throws ClassNotFoundException, IOException {
 
-        new Start();
+        //new Start();
+        Eloquent eloquent = new Eloquent("graph_data_test");
+        eloquent.getGraphData();
+
     }
 
     public Start() throws ClassNotFoundException {

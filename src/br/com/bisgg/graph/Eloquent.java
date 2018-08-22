@@ -39,11 +39,25 @@ public class Eloquent extends Persistencia {
             for (int i = 0; i < graph_data.size(); i++) {
                 countLine++;
 
+                // Pega os nós e as arestas do grafo. Respectivamente na primeira e segunda linha
+                int nodes = Integer.parseInt(graph_data.get(0).trim());
+                int edges = Integer.parseInt(graph_data.get(1).trim());
+
                 if (countLine >= 3 && !(graph_data.get(i).equals("-1 -1"))) {
                     String[] adjacencia = graph_data.get(i).split(" ");
-                    System.out.println("\norigem: "+adjacencia[0]+"\ndestino: "+adjacencia[1]);
+
+                    // está preenchida a origem e o destino do vértice
+                    if (!adjacencia[0].equals(" ") || !adjacencia[1].equals(" ")) {
+                        int node_origin = Integer.parseInt(adjacencia[0]);
+                        int node_destination = Integer.parseInt(adjacencia[1]);
+
+                        System.out.println(node_origin + " - " + node_destination);
+                    } else {
+                        System.out.println("Adjcência em " + graph_data.get(i) + " incorreta");
+                    }
                 }
 
+                Graph graph = new Graph(nodes, edges);
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

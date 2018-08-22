@@ -6,9 +6,9 @@ public class Graph {
     private int nodes;
     private int[][] matrizAdjacencia;
 
-    public Graph (int edges, int nodes) {
-        this.edges = edges;
+    public Graph (int nodes, int edges) {
         this.nodes = nodes;
+        this.edges = edges;
     }
 
     public void setGraph (int i, int j, int value) {

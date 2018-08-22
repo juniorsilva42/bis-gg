@@ -1,4 +1,7 @@
-package br.com.bisgg.graph;
+package br.com.bisgg.br.com.bisgg.graph.scene;
+
+import br.com.bisgg.graph.Edges;
+import br.com.bisgg.graph.Node;
 
 import java.util.HashMap;
 import java.util.LinkedList;

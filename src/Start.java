@@ -11,7 +11,17 @@ public class Start {
         Eloquent eloquent = new Eloquent("graph_data_test");
         eloquent.getGraphData();
 
-        System.out.println(Graph.getNodes());
+        int nodes = Graph.getNodes();
+        int edges = Graph.getEdges();
+
+        // AdjacencyList adjacencyList = new AdjcencyList(nodes, edges);
+
+        // adjacencyList.getLengthNode(n1);
+        // adjacencyList.isAdjacent(n1, n2);
+        // adjacencyList.getNodeAdjacency(n1)
+        // adjacencyList.getMinorMajorLength();
+
+        System.out.println(Graph.getEdges());
     }
 
     public Start() throws ClassNotFoundException {

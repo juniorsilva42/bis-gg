@@ -11,7 +11,7 @@ public class Start {
         Eloquent eloquent = new Eloquent("graph_data_test");
         eloquent.getGraphData();
 
-        System.out.println(Graph.getEdges());
+        System.out.println(Graph.getNodes());
     }
 
     public Start() throws ClassNotFoundException {

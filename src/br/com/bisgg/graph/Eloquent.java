@@ -3,7 +3,9 @@ package br.com.bisgg.graph;
 import br.com.bisgg.persistencia.Persistencia;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Eloquent extends Persistencia {
 
@@ -30,18 +32,18 @@ public class Eloquent extends Persistencia {
     }
 
     public void getGraphData () throws IOException, ClassNotFoundException {
-
-        LinkedList<Object> retorna = null;
-
         try {
 
             LinkedList<String> graph_data = this.readGraphFile();
+            int graphSize = graph_data.size();
 
             int nodes = 0, edges = 0;
-            int countLine = 0;
+            String[] adjacencia;
 
-            for (int i = 0; i < graph_data.size(); i++) {
-                countLine++;
+            int currentLine = 0;
+
+            for (int i = 0; i < graphSize; i++) {
+                currentLine++;
 
                 /*
                 *
@@ -57,13 +59,18 @@ public class Eloquent extends Persistencia {
                     System.out.println("\bImpossível gerar o grafo.\nHá um erro nas especificações básicas de (V, A) nas duas primeiras linhas do arquivo.");
                     break;
                 } else {
+                    // Obtém a quantidade de nós e arestas do grafo
                     nodes = Integer.parseInt(graph_data.get(0));
                     edges = graph_data.size() - 2;
                 }
 
-                if (countLine >= 3 && !(graph_data.get(i).equals("-1 -1"))) {
+                /*
+                *
+                * Verifica se a linha atual é uma linha que contém informações sobre adjacência do tipo 1 2;
+                * A especificação mínima é estar, pelo menos, na segunda linha e ela ser diferente de -1 -1, onde identifica ser o fim do arquivo
+                * */
+                if (currentLine >= 2 && !(graph_data.get(i).equals("-1 -1"))) {
 
-                    String[] adjacencia;
                     adjacencia = graph_data.get(i).split("\\s+");
 
                     boolean error = false;
@@ -75,17 +82,30 @@ public class Eloquent extends Persistencia {
                         lineOfError = i;
                         error = true;
                     } else {
-                        int node_origin = Integer.parseInt(adjacencia[0]);
-                        int node_destination = Integer.parseInt(adjacencia[1]);
 
-                        // Cria a instância da classe mãe e fomenta as informações principais do Grafo
-                        Graph graph = new Graph(nodes, edges);
+                        Map<String, String> map = new HashMap<>();
+
+                        /*
+                        *
+                        * todo:
+                        *   - Adicionar cada linha de cada vértice de origem/destino em uma fila;
+                        *   - Desinfileirar cada elemento da fila paralelamente e passar pro objeto de nós;
+                        * */
                     }
 
-                    if (error)
-                        System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição " + indexOfError + " do arquivo.\n=> G(" + graph_data.get(lineOfError) + ", ?)");
+                   if (error) System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição " + indexOfError + " do arquivo.\n=> G(" + graph_data.get(lineOfError) + ", ?)");
                 }
             }
+
+            // Cria a instância da classe mãe e fomenta as informações principais do Grafo
+            if (nodes != 0 || edges != 0) {
+                Graph graph = new Graph(nodes, edges);
+
+            } else {
+                System.out.println("\nImpossível gerar o grafo!");
+            }
+
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

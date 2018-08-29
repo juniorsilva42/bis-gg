@@ -1,18 +1,14 @@
 import br.com.bisgg.graph.Eloquent;
-import br.com.bisgg.graph.Graph;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Start {
 
-    public static void main (String[] args) throws ClassNotFoundException, IOException {
+    public static void main (String... args) throws ClassNotFoundException, IOException {
 
-        Eloquent eloquent = new Eloquent("graph_data_test");
+        Eloquent eloquent = new Eloquent("graph_data_1");
         eloquent.getGraphData();
-
-        int nodes = Graph.getNodes();
-        int edges = Graph.getEdges();
 
         // AdjacencyList adjacencyList = new AdjcencyList(nodes, edges);
 
@@ -21,7 +17,13 @@ public class Start {
         // adjacencyList.getNodeAdjacency(n1)
         // adjacencyList.getMinorMajorLength();
 
-        System.out.println(Graph.getEdges());
+        /*
+        *
+        * git checkout -b playground-tests
+        git push
+        git checkout master
+        git merge
+        * */
     }
 
     public Start() throws ClassNotFoundException {

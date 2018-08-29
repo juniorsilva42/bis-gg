@@ -37,7 +37,6 @@ public class Persistencia implements PersistenciaInterface {
 				objects.add(line);
 				line = br.readLine();
 			}
-
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

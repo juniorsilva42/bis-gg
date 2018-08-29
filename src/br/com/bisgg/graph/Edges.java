@@ -2,15 +2,9 @@ package br.com.bisgg.graph;
 
 public class Edges {
 
-    private final int from, to;
+    private int e1;
+    private int e2;
+    //private int weigth;
 
-    public Edges (int from, int to) {
-        this.from = from;
-        this.to = to;
-    }
 
-    @Override
-    public String toString () {
-        return "["+from+ "=> "+to+"]";
-    }
 }

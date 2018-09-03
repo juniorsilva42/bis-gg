@@ -1,32 +1,30 @@
 package br.com.bisgg.graph;
 
-import br.com.bisgg.graph.scene.Node;
-
 import java.util.List;
 
 public class Graph {
 
-    private List<Edges> edges;
-    private Node node;
+    private List<Edges> edgesOrigin;
+    private int nodes;
 
-    public Graph (Node node, List<Edges> edges) {
-        this.node = node;
-        this.edges = edges;
+    public Graph (int nodes, List<Edges> edges) {
+        this.nodes = nodes;
+        this.edgesOrigin = edgesOrigin;
     }
 
-    public List<Edges> getEdges() {
-        return edges;
+    public List<Edges> getEdgesOrigin() {
+        return edgesOrigin;
     }
 
-    public void setEdges(List<Edges> edges) {
-        this.edges = edges;
+    public void setEdgesOrigin(List<Edges> edgesOrigin) {
+        this.edgesOrigin = edgesOrigin;
     }
 
-    public Node getNode() {
-        return node;
+    public int getNode() {
+        return nodes;
     }
 
-    public void setNode(Node node) {
-        this.node = node;
+    public void setNode(int node) {
+        this.nodes = node;
     }
 }

@@ -1,11 +1,13 @@
 import br.com.bisgg.graph.Eloquent;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Start {
 
     public static void main (String... args) throws ClassNotFoundException, IOException {
+
 
         Eloquent eloquent = new Eloquent("graph_data_1");
         eloquent.getGraphData();

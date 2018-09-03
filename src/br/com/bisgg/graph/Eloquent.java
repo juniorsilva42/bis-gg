@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Eloquent extends Persistencia {
 
@@ -35,12 +36,13 @@ public class Eloquent extends Persistencia {
         try {
 
             LinkedList<String> graph_data = this.readGraphFile();
-            int graphSize = graph_data.size();
+            List<String> rows = graph_data.stream().filter(line -> line.split("\\s+").length == 2).collect(Collectors.toList());
+            int graphSize = rows.size();
 
             int nodes = 0, edges = 0;
-            String[] adjacencia;
-
             int currentLine = 0;
+
+            // System.out.println(rows.get(0).split(" ")[1]);
 
             for (int i = 0; i < graphSize; i++) {
                 currentLine++;
@@ -69,21 +71,18 @@ public class Eloquent extends Persistencia {
                 * Verifica se a linha atual é uma linha que contém informações sobre adjacência do tipo 1 2;
                 * A especificação mínima é estar, pelo menos, na segunda linha e ela ser diferente de -1 -1, onde identifica ser o fim do arquivo
                 * */
-                if (currentLine >= 2 && !(graph_data.get(i).equals("-1 -1"))) {
-
-                    adjacencia = graph_data.get(i).split("\\s+");
+                if (currentLine >= 2 && !(rows.get(i).equals("-1 -1"))) {
 
                     boolean error = false;
                     int indexOfError = 0;
                     int lineOfError = 0;
 
-                    if (adjacencia.length <= 1) {
+
+                    if (rows.get(i).split(" ").length <= 1) {
                         indexOfError = i - 1;
                         lineOfError = i;
                         error = true;
                     } else {
-
-                        Map<String, String> map = new HashMap<>();
 
                         /*
                         *
@@ -96,15 +95,6 @@ public class Eloquent extends Persistencia {
                    if (error) System.out.println("\bImpossível gerar o grafo.\nHá um erro na adjacência da posição " + indexOfError + " do arquivo.\n=> G(" + graph_data.get(lineOfError) + ", ?)");
                 }
             }
-
-            // Cria a instância da classe mãe e fomenta as informações principais do Grafo
-            if (nodes != 0 || edges != 0) {
-                Graph graph = new Graph(nodes, edges);
-
-            } else {
-                System.out.println("\nImpossível gerar o grafo!");
-            }
-
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

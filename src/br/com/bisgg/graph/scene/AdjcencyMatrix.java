@@ -1,21 +1,30 @@
 package br.com.bisgg.graph.scene;
 
-public class AdjcencyMatrix implements GraphSceneInterface {
+import br.com.bisgg.graph.Edges;
+import br.com.bisgg.graph.Graph;
 
-    private int nodes;
-    private int edges;
+import java.util.List;
+
+public class AdjcencyMatrix extends Graph implements GraphSceneInterface {
+
     private int[][] matrix;
 
-    public AdjcencyMatrix (int nodes, int edges) {
-        this.matrix = new int[nodes][edges];
+    public AdjcencyMatrix (int node, List<Edges> edgesOrigin, List<Edges> edgesDestination) {
+        super(node, edgesOrigin);
+    }
+
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
     }
 
     public void setValue (int i, int j, int value) {
         this.matrix[i][j] = value;
     }
 
-    public void setGraph () {
-    }
 
     @Override
     public void getLengthNode(int node) {
@@ -35,5 +44,17 @@ public class AdjcencyMatrix implements GraphSceneInterface {
     @Override
     public void getMinorMajorLength() {
 
+    }
+
+    public void show () {
+        StringBuilder s = new StringBuilder();
+
+        for (int i = 0; i < this.getNode(); i++) {
+            for (int j = 0; j < this.getNode(); j++) {
+                s.append(this.matrix[i][j]).append(" ");
+            }
+        }
+
+        System.out.println(s.toString());
     }
 }

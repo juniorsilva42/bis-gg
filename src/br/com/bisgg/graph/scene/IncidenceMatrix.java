@@ -16,18 +16,16 @@ public class IncidenceMatrix implements GraphSceneInterface {
 
     public void setState (int i, int j, int state) {
         this.matrix[i-1][j-1] = state;
+    }
 
-        if (this.isAdjacent(i-1, j-1)) {
-            this.matrix[i-1][j-1] = 1;
-        } else if (this.isAdjacent(j-1, i-1)) {
-            this.matrix[j-1][i-1] = -1;
-        }
+    public int getMatrixSize () {
+        return this.matrixSize;
     }
 
     public void show () {
         StringBuilder s = new StringBuilder();
-        for (int i = 0; i < this.edges; i++) {
-            for (int j = 0; j < this.edges; j++)
+        for (int i = 0; i < this.getMatrixSize(); i++) {
+            for (int j = 0; j < this.getMatrixSize(); j++)
                 s.append(this.matrix[i][j]).append(" ");
         }
         System.out.println(s.toString());

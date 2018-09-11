@@ -16,7 +16,7 @@ public class IncidenceMatrixTests {
         IncidenceMatrix incidenceMatrix = new IncidenceMatrix(graph.getNodes(), graph.getEdges());
 
         // Fomentando a matriz com os dados do arquivo vindo da super classe Grafo
-        for (int i = 0; i < graph.getEdges(); i++) {
+        for (int i = 0; i < rowsInEdges.size(); i++) {
             int a = Integer.parseInt(rowsInEdges.get(i).split(" ")[0]);
             int b = Integer.parseInt(rowsInEdges.get(i).split(" ")[1]);
 
@@ -27,5 +27,6 @@ public class IncidenceMatrixTests {
         }
 
         incidenceMatrix.show();
+
     }
 }

@@ -99,10 +99,14 @@ public class AdjacencyMatrix implements GraphSceneInterface {
     public void show () {
         StringBuilder s = new StringBuilder();
         System.out.print("\n[ ");
-        for (int i = 0; i < nodes; i++) {
-            for (int j = 0; j < nodes; j++)
+        for (int i = 0; i < this.getMatrixSize(); i++) {
+            for (int j = 0; j < this.getMatrixSize(); j++)
                 s.append(this.matrix[i][j]).append(" ");
         }
         System.out.println(s.toString()+"]");
+    }
+
+    public int getMatrixSize () {
+        return this.matrixSize;
     }
 }

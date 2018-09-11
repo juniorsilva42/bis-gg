@@ -1,10 +1,5 @@
 package br.com.bisgg.graph.scene;
-
-import br.com.bisgg.graph.Graph;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdjacencyMatrix implements GraphSceneInterface {
 
@@ -24,7 +19,19 @@ public class AdjacencyMatrix implements GraphSceneInterface {
 
     @Override
     public void getLengthNode(int node) {
+        int entryPoint = 0, exitPoint = 0;
 
+        for (int i = 0; i < this.matrixSize; i++) {
+            if (this.matrix[node - 1][i] == 1)
+                exitPoint += 1;
+            else if (this.matrix[i][node - 1] == 1)
+                entryPoint += 1;
+        }
+
+        System.out.println("\n\nGrau do vértice "+node+":");
+        System.out.println("=================================");
+        System.out.println("Grau de entrada: "+entryPoint);
+        System.out.println("Grau de saída: "+exitPoint);
     }
 
     @Override

@@ -52,7 +52,6 @@ public class AdjacencyMatrix implements GraphSceneInterface {
             if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
                 System.out.print(", ");
         }
-
         System.out.print("}");
     }
 

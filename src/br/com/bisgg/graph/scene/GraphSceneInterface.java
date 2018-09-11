@@ -1,5 +1,7 @@
 package br.com.bisgg.graph.scene;
 
+import java.io.IOException;
+
 public interface GraphSceneInterface {
 
     /**
@@ -30,7 +32,7 @@ public interface GraphSceneInterface {
      * @return void
      *
      */
-    void getNodeAdjacency(int node);
+    void getNodeAdjacency(int node) throws IOException, ClassNotFoundException;
 
     /**
      *

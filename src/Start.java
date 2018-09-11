@@ -9,7 +9,7 @@ public class Start {
 
     public static void main (String... args) throws ClassNotFoundException, IOException {
 
-        Graph graph = new Graph("graph_data_2");
+        Graph graph = new Graph("graph_data_1");
         List<String> rowsInEdges = graph.createEdges();
 
         int nodes = graph.getNodes();
@@ -23,11 +23,12 @@ public class Start {
             adjacencyMatrix.setState(a, b, 1);
         }
 
-        System.out.println(adjacencyMatrix.isAdjacent(10, 2));
+        // Verificando se os vértices 2 e 8 são adjacentes
+        System.out.println(adjacencyMatrix.isAdjacent(1, 4));
+
+        adjacencyMatrix.getNodeAdjacency(2);
 
         // adjacencyList.getLengthNode(n1);
-        // adjacencyList.isAdjacent(n1, n2);
-        // adjacencyList.getNodeAdjacency(n1)
         // adjacencyList.getMinorMajorLength();
     }
 

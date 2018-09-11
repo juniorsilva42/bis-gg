@@ -3,8 +3,7 @@ package br.com.bisgg.graph;
 import br.com.bisgg.persistencia.Persistencia;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.LinkedList;
 
 public class Eloquent extends Persistencia {
 

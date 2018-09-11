@@ -1,13 +1,21 @@
 package br.com.bisgg.graph.scene;
 
+import br.com.bisgg.graph.Graph;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class AdjacencyMatrix implements GraphSceneInterface {
 
     private int nodes;
     private int[][] matrix;
+    private int matrixSize;
 
     public AdjacencyMatrix(int nodes) {
         this.nodes = nodes;
         this.matrix = new int[nodes][nodes];
+        this.matrixSize = this.matrix.length;
     }
 
     public void setState (int i, int j, int state) {
@@ -30,6 +38,22 @@ public class AdjacencyMatrix implements GraphSceneInterface {
     @Override
     public void getNodeAdjacency(int node) {
 
+        ArrayList<Integer> adjacencyNodes = new ArrayList<>();
+
+        for (int i = 0; i < this.matrixSize; i++) {
+            if (this.matrix[node - 1][i] == 1)
+                adjacencyNodes.add(i + 1);
+        }
+
+        System.out.print("{");
+
+        for (int j = 0; j < adjacencyNodes.size(); j++) {
+            System.out.print(adjacencyNodes.get(j));
+            if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
+                System.out.print(", ");
+        }
+
+        System.out.print("}");
     }
 
     @Override
@@ -43,7 +67,6 @@ public class AdjacencyMatrix implements GraphSceneInterface {
             for (int j = 0; j < nodes; j++)
                 s.append(this.matrix[i][j]).append(" ");
         }
-        System.out.print("\n");
         System.out.println(s.toString());
     }
 

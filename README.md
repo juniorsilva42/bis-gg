@@ -5,7 +5,7 @@ Discente: Ivanicio Junior
 Matrícula: 17202004
 
 ### Descrição
-Implementar um sistema capaz de gerar e representar grafos a partir de arquivos padronizados e representar em 3 estruturas básicas: Matriz de Adjacência, Matriz de Incidência e Lista de Incidência.   
+Implementar um sistema capaz de gerar e representar grafos a partir de arquivos padronizados e representar em 3 estruturas básicas: Matriz de Adjacência, Matriz de Incidência e Lista de Adjacência.   
 
 Com base na estrutura escolhida, o programa deve fornecer as seguintes informações:
   - Número de arestas;

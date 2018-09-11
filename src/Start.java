@@ -1,4 +1,5 @@
-import br.com.bisgg.graph.Eloquent;
+import br.com.bisgg.graph.Graph;
+import br.com.bisgg.graph.scene.AdjacencyMatrix;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,24 +9,26 @@ public class Start {
 
     public static void main (String... args) throws ClassNotFoundException, IOException {
 
+        Graph graph = new Graph("graph_data_2");
+        List<String> rowsInEdges = graph.createEdges();
 
-        Eloquent eloquent = new Eloquent("graph_data_1");
-        eloquent.getGraphData();
+        int nodes = graph.getNodes();
+        int edges = graph.getEdges();
 
-        // AdjacencyList adjacencyList = new AdjcencyList(nodes, edges);
+        AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(nodes);
+
+        for (int i = 0; i < edges; i++) {
+            int a = Integer.parseInt(rowsInEdges.get(i).split(" ")[0]);
+            int b = Integer.parseInt(rowsInEdges.get(i).split(" ")[1]);
+            adjacencyMatrix.setState(a, b, 1);
+        }
+
+        System.out.println(adjacencyMatrix.isAdjacent(10, 2));
 
         // adjacencyList.getLengthNode(n1);
         // adjacencyList.isAdjacent(n1, n2);
         // adjacencyList.getNodeAdjacency(n1)
         // adjacencyList.getMinorMajorLength();
-
-        /*
-        *
-        * git checkout -b playground-tests
-        git push
-        git checkout master
-        git merge
-        * */
     }
 
     public Start() throws ClassNotFoundException {

@@ -1,24 +1,26 @@
 package br.com.bisgg.graph;
 
-public class Edges {
+import java.util.List;
 
-    private String e1;
-    private String e2;
+public class Edges  {
+
+    private List<String> e1;
+    private List<String> e2;
     //private int weigth;
 
-    public String getE1() {
+    protected List<String> getE1() {
         return e1;
     }
 
-    public void setE1(String e1) {
+    protected void setE1(List<String> e1) {
         this.e1 = e1;
     }
 
-    public String getE2() {
+    protected List<String> getE2() {
         return e2;
     }
 
-    public void setE2(String e2) {
+    protected void setE2(List<String> e2) {
         this.e2 = e2;
     }
 }

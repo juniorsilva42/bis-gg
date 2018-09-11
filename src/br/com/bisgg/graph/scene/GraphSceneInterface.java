@@ -41,5 +41,5 @@ public interface GraphSceneInterface {
      * @return void
      *
      */
-    void getMinorMajorLength();
+    void getMinorMajorLength() throws IOException, ClassNotFoundException;
 }

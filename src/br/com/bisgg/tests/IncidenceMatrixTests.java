@@ -26,7 +26,6 @@ public class IncidenceMatrixTests {
                 incidenceMatrix.set(b, a, -1);
         }
 
-        incidenceMatrix.getLengthNode(2);
-        incidenceMatrix.show();
+        incidenceMatrix.getNodeAdjacency(4);
     }
 }

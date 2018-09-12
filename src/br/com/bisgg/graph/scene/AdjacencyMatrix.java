@@ -1,9 +1,6 @@
 package br.com.bisgg.graph.scene;
-import br.com.bisgg.graph.Graph;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdjacencyMatrix implements GraphSceneInterface {
 
@@ -41,10 +38,7 @@ public class AdjacencyMatrix implements GraphSceneInterface {
 
     @Override
     public boolean isAdjacent(int n1, int n2) {
-        if (this.matrix[n1-1][n2-1] == 1)
-            return true;
-
-        return false;
+        return this.matrix[n1-1][n2-1] == 1;
     }
 
     @Override
@@ -58,7 +52,7 @@ public class AdjacencyMatrix implements GraphSceneInterface {
         }
 
         if (adjacencyNodes.size() != 0) {
-            System.out.print("\nO conjunto de adjacências de α("+node+") = {");
+            System.out.print("\nO conjunto de adjacências de αv("+node+") = {");
 
             for (int j = 0; j < adjacencyNodes.size(); j++) {
                 System.out.print(adjacencyNodes.get(j));
@@ -70,34 +64,10 @@ public class AdjacencyMatrix implements GraphSceneInterface {
             System.out.print("}");
             System.out.println("\n-----------------------------------");
         } else {
-            System.out.println("\nO conjunto de adjacências de α("+node+") é nulo. {∅}");
+            System.out.println("\nO conjunto de adjacências de αv("+node+") é nulo. {∅}");
             System.out.println("-----------------------------------");
         }
 
-    }
-
-    @Override
-    public void getMinorMajorLength() throws IOException, ClassNotFoundException {
-        Graph graph = new Graph("graph_data_1");
-        List<String> edges = graph.createEdges();
-
-        List<Integer> graus = new ArrayList<>();
-
-        int nodeOrigin = 0;
-        int j = 1;
-
-        System.out.println("\n\n");
-
-        int entryPoint = 0, exitPoint = 0;
-
-        for (int i = 1; i < edges.size(); i++) {
-            nodeOrigin = Integer.parseInt(edges.get(i).split(" ")[0]);
-
-            if (this.matrix[nodeOrigin - 1][j-1] == 1)
-                exitPoint += 1;
-
-            j++;
-        }
     }
 
     public void show () {

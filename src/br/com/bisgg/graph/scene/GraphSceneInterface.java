@@ -33,13 +33,4 @@ public interface GraphSceneInterface {
      *
      */
     void getNodeAdjacency(int node) throws IOException, ClassNotFoundException;
-
-    /**
-     *
-     * Procedimento para obter, respectivamente, os vértices de maior e menor grau
-     * @author Ivanicio Jr
-     * @return void
-     *
-     */
-    void getMinorMajorLength() throws IOException, ClassNotFoundException;
 }

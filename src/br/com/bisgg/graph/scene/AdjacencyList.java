@@ -1,6 +1,6 @@
 package br.com.bisgg.graph.scene;
 
-public class IncidenceList implements GraphSceneInterface {
+public class AdjacencyList implements GraphSceneInterface {
 
     @Override
     public void getLengthNode(int node) {
@@ -14,11 +14,6 @@ public class IncidenceList implements GraphSceneInterface {
 
     @Override
     public void getNodeAdjacency(int node) {
-
-    }
-
-    @Override
-    public void getMinorMajorLength() {
 
     }
 }

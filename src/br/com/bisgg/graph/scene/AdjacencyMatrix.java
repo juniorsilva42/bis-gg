@@ -25,10 +25,11 @@ public class AdjacencyMatrix implements GraphSceneInterface {
     public void getLengthNode(int node) {
         int entryPoint = 0, exitPoint = 0;
 
-        for (int i = 0; i < this.matrixSize; i++) {
+        for (int i = 0; i < this.getMatrixSize(); i++) {
             if (this.matrix[node - 1][i] == 1)
                 exitPoint += 1;
-            else if (this.matrix[i][node - 1] == 1)
+
+            if (this.matrix[i][node - 1] == 1)
                 entryPoint += 1;
         }
 

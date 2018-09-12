@@ -20,13 +20,13 @@ public class IncidenceMatrixTests {
             int a = Integer.parseInt(rowsInEdges.get(i).split(" ")[0]);
             int b = Integer.parseInt(rowsInEdges.get(i).split(" ")[1]);
 
-            incidenceMatrix.setState(a, b, 1);
+            incidenceMatrix.set(a, b, 1);
 
-            if (incidenceMatrix.isAdjacent(b, a))
-                incidenceMatrix.setState(a, b, -1); // seta o estado de cada aresta conexa do grafo para 1. Padrão de volta -1
-
+            if (incidenceMatrix.isAdjacent(a, b) && incidenceMatrix.isAdjacent(b, a))
+                incidenceMatrix.set(b, a, -1);
         }
 
+        incidenceMatrix.getLengthNode(2);
         incidenceMatrix.show();
     }
 }

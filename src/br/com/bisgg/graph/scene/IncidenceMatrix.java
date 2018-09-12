@@ -14,8 +14,40 @@ public class IncidenceMatrix implements GraphSceneInterface {
         this.matrixSize = this.matrix.length;
     }
 
-    public void setState (int i, int j, int state) {
-        this.matrix[i-1][j-1] = state;
+    public void set (int i, int j, int state) { this.matrix[i-1][j-1] = state; }
+
+    @Override
+    public void getLengthNode(int node) {
+
+        int entryPoint = 0, exitPoint = 0;
+
+        for (int i = 0; i < this.getMatrixSize(); i++) {
+            if (this.matrix[node - 1][i] == 1)
+                exitPoint++;
+
+            if (this.matrix[i][node - 1] == -1 || this.matrix[i][node-1] == 1)
+                entryPoint++;
+        }
+
+        System.out.println("\nGRAU DO VÉRTICE "+node+":");
+        System.out.println("- Grau de entrada: "+entryPoint);
+        System.out.println("- Grau de saída: "+exitPoint);
+        System.out.println("-----------------------------------");
+    }
+
+    @Override
+    public boolean isAdjacent(int n1, int n2) {
+        return this.matrix[n1-1][n2-1] == 1;
+    }
+
+    @Override
+    public void getNodeAdjacency(int node) {
+
+    }
+
+    @Override
+    public void getMinorMajorLength() {
+
     }
 
     public int getMatrixSize () {
@@ -29,28 +61,5 @@ public class IncidenceMatrix implements GraphSceneInterface {
                 s.append(this.matrix[i][j]).append(" ");
         }
         System.out.println(s.toString());
-    }
-
-    @Override
-    public void getLengthNode(int node) {
-
-    }
-
-    @Override
-    public boolean isAdjacent(int n1, int n2) {
-        if (this.matrix[n1-1][n2-1] == 1)
-            return true;
-
-        return false;
-    }
-
-    @Override
-    public void getNodeAdjacency(int node) {
-
-    }
-
-    @Override
-    public void getMinorMajorLength() {
-
     }
 }

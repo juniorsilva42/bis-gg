@@ -1,4 +1,4 @@
-package br.com.bisgg.testes;
+package br.com.bisgg.tests;
 
 import br.com.bisgg.graph.Graph;
 import br.com.bisgg.graph.scene.IncidenceMatrix;
@@ -24,9 +24,9 @@ public class IncidenceMatrixTests {
 
             if (incidenceMatrix.isAdjacent(b, a))
                 incidenceMatrix.setState(a, b, -1); // seta o estado de cada aresta conexa do grafo para 1. Padrão de volta -1
+
         }
 
         incidenceMatrix.show();
-
     }
 }

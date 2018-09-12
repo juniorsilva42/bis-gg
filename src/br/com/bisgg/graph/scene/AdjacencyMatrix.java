@@ -52,17 +52,20 @@ public class AdjacencyMatrix implements GraphSceneInterface {
         ArrayList<Integer> adjacencyNodes = new ArrayList<>();
 
         for (int i = 0; i < matrixSize; i++) {
-            if (this.matrix[node - 1][i] == 1)
+            if (this.matrix[node - 1][i] == 1 || this.matrix[i][node-1] == 1)
                 adjacencyNodes.add(i + 1);
         }
 
         if (adjacencyNodes.size() != 0) {
             System.out.print("\nO conjunto de adjacências de α("+node+") = {");
+
             for (int j = 0; j < adjacencyNodes.size(); j++) {
                 System.out.print(adjacencyNodes.get(j));
+
                 if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
                     System.out.print(", ");
             }
+
             System.out.print("}");
             System.out.println("\n-----------------------------------");
         } else {

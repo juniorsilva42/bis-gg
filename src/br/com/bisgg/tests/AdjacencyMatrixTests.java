@@ -1,4 +1,4 @@
-package br.com.bisgg.testes;
+package br.com.bisgg.tests;
 
 import br.com.bisgg.graph.Graph;
 import br.com.bisgg.graph.scene.AdjacencyMatrix;
@@ -51,7 +51,7 @@ public class AdjacencyMatrixTests {
         }
 
         // Listar os vértices adjacentes a um dado nó
-        adjacencyMatrix.getNodeAdjacency(5);
+        adjacencyMatrix.getNodeAdjacency(4);
 
         // Lista a matriz de adjacência
         adjacencyMatrix.show();

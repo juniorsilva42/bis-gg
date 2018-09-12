@@ -70,6 +70,37 @@ public class AdjacencyMatrix implements GraphSceneInterface {
 
     }
 
+    public void getNodesAdjacenciesSimultaneously (int node1, int node2) {
+
+        ArrayList<Integer> adjacencyNodes = new ArrayList<>();
+
+        for (int i = 0; i < matrixSize; i++) {
+            if (this.matrix[node1 - 1][i] == 1 || this.matrix[i][node1-1] == 1)
+                adjacencyNodes.add(i + 1);
+
+            if (this.matrix[node2 - 1][i] == 1 || this.matrix[i][node2-1] == 1)
+                adjacencyNodes.add(i + 1);
+        }
+
+        if (adjacencyNodes.size() != 0) {
+            System.out.print("\nO conjunto de adjacências de αv("+node1+") simultaneamente a αv("+node2+") = {");
+
+            for (int j = 0; j < adjacencyNodes.size(); j++) {
+                System.out.print(adjacencyNodes.get(j));
+
+                if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
+                    System.out.print(", ");
+            }
+
+            System.out.print("}");
+            System.out.println("\n-----------------------------------");
+        } else {
+            System.out.println("\nO conjunto de adjacências de αv("+node1+") e αv("+node2+") é nulo. {∅}");
+            System.out.println("-----------------------------------");
+        }
+
+    }
+
     public void show () {
         StringBuilder s = new StringBuilder();
         System.out.print("\n[ ");

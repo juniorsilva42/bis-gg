@@ -10,7 +10,7 @@ public class AdjacencyMatrixTests {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Graph graph = new Graph("graph_data_1");
+        Graph graph = new Graph("graph_data_3");
         List<String> rowsInEdges = graph.createEdges();
 
         // Instanciando o teste da Matriz de Adjacência
@@ -24,13 +24,13 @@ public class AdjacencyMatrixTests {
             adjacencyMatrix.setState(a, b, 1); // seta o estado de cada aresta conexa do grafo para 1. Padrão desconexo 0
         }
 
-        System.out.println("\nGrafo 1 - Entrada 1:");
+        System.out.println("\nGrafo 2 - Entrada 2:");
         System.out.println("- N° de vértices: "+graph.getNodes());
         System.out.println("- N° de arestas: "+graph.getEdges());
         System.out.println("===================================");
 
         // Obtem os vértices incidentes sobre o nó 2
-        adjacencyMatrix.getLengthNode(3);
+        adjacencyMatrix.getLengthNode(7);
 
         // Verificando se os vértices 2 e 8 são adjacentes
         if (adjacencyMatrix.isAdjacent(2, 4)) {
@@ -53,7 +53,9 @@ public class AdjacencyMatrixTests {
         // Listar os vértices adjacentes a um dado nó
         adjacencyMatrix.getNodeAdjacency(4);
 
+        adjacencyMatrix.getNodesAdjacenciesSimultaneously(35, 40);
+
         // Lista a matriz de adjacência
-        adjacencyMatrix.show();
+        // adjacencyMatrix.show();
     }
 }

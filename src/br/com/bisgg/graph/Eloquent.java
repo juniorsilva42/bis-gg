@@ -1,6 +1,6 @@
 package br.com.bisgg.graph;
 
-import br.com.bisgg.persistencia.Persistencia;
+import br.com.bisgg.persistence.Persistencia;
 
 import java.io.IOException;
 import java.util.LinkedList;

@@ -1,6 +1,10 @@
 package br.com.bisgg.graph.scene;
 
+import br.com.bisgg.graph.Graph;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdjacencyMatrix implements GraphSceneInterface {
 
@@ -74,31 +78,39 @@ public class AdjacencyMatrix implements GraphSceneInterface {
 
         ArrayList<Integer> adjacencyNodes = new ArrayList<>();
 
-        for (int i = 0; i < matrixSize; i++) {
-            if (this.matrix[node1 - 1][i] == 1 || this.matrix[i][node1-1] == 1)
-                adjacencyNodes.add(i + 1);
+        int control_n1 = 0, control_n2 = 0;
+        boolean controlError = false;
 
-            if (this.matrix[node2 - 1][i] == 1 || this.matrix[i][node2-1] == 1)
+        for (int i = 0; i < matrixSize; i++) {
+            if (this.matrix[node1 - 1][i] == 1 || this.matrix[i][node1-1] == 1) {
                 adjacencyNodes.add(i + 1);
+                control_n1++; // controla quantas adjacências há no primeiro nó
+            }
+
+            if (this.matrix[node2 - 1][i] == 1 || this.matrix[i][node2-1] == 1) {
+                adjacencyNodes.add(i + 1);
+                control_n2++; // controla quantas adjacências há no segundo nó
+            }
         }
 
         if (adjacencyNodes.size() != 0) {
-            System.out.print("\nO conjunto de adjacências de αv("+node1+") simultaneamente a αv("+node2+") = {");
 
-            for (int j = 0; j < adjacencyNodes.size(); j++) {
-                System.out.print(adjacencyNodes.get(j));
+            if (control_n1 >= 1 && control_n2 >= 1) {
+                System.out.print("\nO conjunto de adjacências de αv("+node1+") simultaneamente a αv("+node2+") = {");
 
-                if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
-                    System.out.print(", ");
-            }
+                for (int j = 0; j < adjacencyNodes.size(); j++) {
+                    System.out.print(adjacencyNodes.get(j));
 
-            System.out.print("}");
-            System.out.println("\n-----------------------------------");
-        } else {
-            System.out.println("\nO conjunto de adjacências de αv("+node1+") e αv("+node2+") é nulo. {∅}");
-            System.out.println("-----------------------------------");
+                    if (!(j == adjacencyNodes.size() - 1)) // Para tirar a vírgula depois do ultimo numero. Estética :)
+                        System.out.print(", ");
+                }
+                System.out.print("}");
+                System.out.println("\n-----------------------------------");
+            } else controlError = true;
         }
 
+        if (controlError)
+            System.out.println("\nO conjunto de adjacências simultâneas de αv("+node1+") e αv("+node2+") é nulo. {∅}");
     }
 
     public void show () {

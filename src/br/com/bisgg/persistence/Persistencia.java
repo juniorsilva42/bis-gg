@@ -1,9 +1,11 @@
-package br.com.bisgg.persistencia;
-import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+package br.com.bisgg.persistence;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.File;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
 
 public class Persistencia implements PersistenciaInterface {
 

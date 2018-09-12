@@ -15,7 +15,7 @@ Com base na estrutura escolhida, o programa deve fornecer as seguintes informaç
   - Listar os vértices de maior e menor grau;
 
 ### Informações
-  - Prazo de entrega: 31/08/2018;
+  - Prazo de entrega: 13/09/2018;
   - Equipe: Eu e Deus;
   - Enviar o código e um relatório contendo os resultados encontrados para cada um dos 3 arquivos de testes de entrada:
     - Entrada 1: grau do vértice 3, verificar se os vértices 2 e 4 são adjacentes, verificar se os vértices 2 e 3 são adjacentes, listar os vértices adjacentes ao vértice 5;

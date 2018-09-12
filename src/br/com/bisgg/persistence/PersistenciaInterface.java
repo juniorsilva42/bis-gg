@@ -1,4 +1,4 @@
-package br.com.bisgg.persistencia;
+package br.com.bisgg.persistence;
 
 import java.io.IOException;
 import java.util.LinkedList;

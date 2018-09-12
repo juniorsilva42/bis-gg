@@ -51,9 +51,10 @@ public class AdjacencyMatrixTests {
         }
 
         // Listar os vértices adjacentes a um dado nó
-        adjacencyMatrix.getNodeAdjacency(4);
+        //adjacencyMatrix.getNodeAdjacency(39);
 
         adjacencyMatrix.getNodesAdjacenciesSimultaneously(35, 40);
+
 
         // Lista a matriz de adjacência
         // adjacencyMatrix.show();

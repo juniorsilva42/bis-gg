@@ -2,6 +2,13 @@ package br.com.bisgg.graph.scene;
 
 import java.util.ArrayList;
 
+/*
+*
+* Classe responsável por gerar a matriz de incidência
+*
+* OBS: Comentários do métodos estão na interface principal
+*
+* */
 public class IncidenceMatrix implements GraphSceneInterface {
 
     private int nodes;
@@ -40,6 +47,23 @@ public class IncidenceMatrix implements GraphSceneInterface {
     @Override
     public boolean isAdjacent(int n1, int n2) {
         return this.matrix[n1-1][n2-1] == 1 || this.matrix[n1-1][n2-1] == -1;
+    }
+
+    /*
+    *
+    * Procedimento helper para retornar, em tela, se um nó é adjacente a outro ou não, diferente do método acima, que retorna
+      apenas um valor primitivo.
+    *
+    * */
+    public void isAdjacentWithFullReturn (int n1, int n2) {
+
+        if (this.isAdjacent(n1, n2)) {
+            System.out.println("\nOs vértices "+n1+" e "+n2+" são adjacentes.");
+            System.out.println("-----------------------------------");
+        } else {
+            System.out.println("\nOs vértices "+n1+" e "+n2+" não são adjacentes.");
+            System.out.println("-----------------------------------");
+        }
     }
 
     @Override

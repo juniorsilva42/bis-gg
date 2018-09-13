@@ -1,10 +1,6 @@
 package br.com.bisgg.graph.scene;
 
-import br.com.bisgg.graph.Graph;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdjacencyMatrix implements GraphSceneInterface {
 
@@ -43,6 +39,17 @@ public class AdjacencyMatrix implements GraphSceneInterface {
     @Override
     public boolean isAdjacent(int n1, int n2) {
         return this.matrix[n1-1][n2-1] == 1;
+    }
+
+    public void isAdjacentWithFullReturn (int n1, int n2) {
+
+        if (isAdjacent(n1, n2)) {
+            System.out.println("\nOs vértices "+n1+" e "+n2+" são adjacentes.");
+            System.out.println("-----------------------------------");
+        } else {
+            System.out.println("\nOs vértices "+n1+" e "+n2+" não são adjacentes.");
+            System.out.println("-----------------------------------");
+        }
     }
 
     @Override

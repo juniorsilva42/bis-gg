@@ -1,15 +1,20 @@
 package br.com.bisgg.graph;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Graph extends Edges {
+/*
+*
+* Classe Graph
+*
+* Responsável por conhecer e gerar o grafo a partir das informações do número de nós, arestas e das arestas formatadas
+* vindas do arquivo
+*
+* */
+public class Graph {
 
-    private List<Edges> edgesOrigin;
-    private List<Edges> edgesDestination;
     private String graphFile;
     private int nodes;
     private int edges;
@@ -18,37 +23,36 @@ public class Graph extends Edges {
         this.graphFile = graphFile;
     }
 
-    public void createGraph () throws IOException, ClassNotFoundException {
-        int j = 0;
-
-        List<String> graphMainData = this.createEdges();
-        int size = graphMainData.size();
-
-        while (j < size) {
-
-            this.setE1(Collections.singletonList(graphMainData.get(j).split(" ")[0]));
-            this.setE2(Collections.singletonList(graphMainData.get(j).split(" ")[1]));
-
-            System.out.print(this.getE1()+" -> "+this.getE2()+"\n");
-            j++;
-        }
-    }
-
+    /*
+    *
+    * Método para criar a lógica das arestas vindo do arquivo, responsável por filtar ligações de origem e destino e identificar
+      se há erros triviais nas ligações.
+    *
+    *
+    * */
     public List<String> createEdges () throws IOException, ClassNotFoundException {
 
+        // Instancia a classe intermediadora Eloquent para obter os dados, mesmo que ainda de forma crua, do arquivo do grafo;
         Eloquent eloquent = new Eloquent(this.graphFile);
         LinkedList<String> graph_data = eloquent.readGraphFile();
 
+        /*
+        *
+        * Cria uma lista para armazenar e filtar, mediante uma expressão Lambda, cada linha do arquivo
+          com uma regra de negócio onde cada linha deve ter, necessariamente, depois de ter seu espaço removido, tamanho igual a dois,
+          pois é ainda onde indica uma possibilida de existir uma aresta de entrada e saída; isso acontece enquanto a linha for -1 -1
+        * */
         List<String> rows = graph_data.stream().filter(line -> line.split(" ").length == 2 && !line.equals("-1 -1")).collect(Collectors.toList());
         int graphSize = rows.size();
 
+        // Número de nós e arestas do grafo
         int nodes = 0, edges = 0;
 
-        // Inicializa uma variável de controle de erro. Começa com a hipótese de um grafo válido, caso valor false há erro nas especificações das arestas
         int i = 0, j = 0;
         int indexOfError = 0;
         int lineOfError = 0;
 
+        // Inicializa uma variável de controle de erro. Começa com a hipótese de um grafo válido, caso valor false há erro nas especificações das arestas
         boolean state = true;
 
          /*
@@ -60,7 +64,7 @@ public class Graph extends Edges {
               igual a 2 significa que aquela informação tende a ser de uma adjacência (V, A) origem/destino;
             *
             *
-            * */
+        * */
         if (graph_data.get(0).isEmpty() || graph_data.get(0).split(" ").length >= 2) {
             System.out.println("\bImpossível gerar o grafo.\nHá um erro nas especificações básicas de (V, A) na primeira linha do arquivo.");
         } else {

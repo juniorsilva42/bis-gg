@@ -30,7 +30,7 @@ public class AdjacencyMatrixTests {
         System.out.println("===================================");
 
         // Obtem os vértices incidentes sobre o nó 2
-        adjacencyMatrix.getLengthNode(7);
+        adjacencyMatrix.getLengthNode(2);
 
         // Verificando se os vértices 2 e 8 são adjacentes
         if (adjacencyMatrix.isAdjacent(2, 4)) {
@@ -54,7 +54,6 @@ public class AdjacencyMatrixTests {
         //adjacencyMatrix.getNodeAdjacency(39);
 
         adjacencyMatrix.getNodesAdjacenciesSimultaneously(35, 40);
-
 
         // Lista a matriz de adjacência
         // adjacencyMatrix.show();

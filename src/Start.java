@@ -13,7 +13,7 @@ public class Start {
     public static void main (String... args) throws ClassNotFoundException, IOException {
 
         // Instancia a classe mãe do sistema passando como parâmetro o arquivo que é pra ser gerado o grafo
-        new Start("graph_data_1");
+        new Start("graph_data_3");
     }
 
     public Start(String graphFileName) throws ClassNotFoundException, IOException {
@@ -56,17 +56,7 @@ public class Start {
                     System.out.println("- N° de arestas: "+graph.getEdges());
                     System.out.println("===================================");
 
-                    // Obtem os vértices incidentes sobre o nó 3
-                    adjacencyMatrix.getLengthNode(3);
-
-                    // Verificando se os vértices 2 e 4 são adjacentes
-                    adjacencyMatrix.isAdjacentWithFullReturn(2, 4);
-
-                    // Verificando se os vértices 2 e 3 são adjacentes
-                    adjacencyMatrix.isAdjacentWithFullReturn(2, 3);
-
-                    // Obtém o conjunto de adjacências do vértice 5
-                    adjacencyMatrix.getNodeAdjacency(5);
+                    adjacencyMatrix.getNodesAdjacenciesSimultaneously(35, 40);
 
                     break;
 
@@ -94,16 +84,13 @@ public class Start {
                     }
 
                     // Obtem os vértices incidentes sobre o nó 3
-                    incidenceMatrix.getLengthNode(3);
+                    incidenceMatrix.getLengthNode(4);
 
                     // Verificando se os vértices 2 e 8 são adjacentes
-                    incidenceMatrix.isAdjacentWithFullReturn(2, 4);
-
-                    // Verificando se os vértices 2 e 3 são adjacentes
-                    incidenceMatrix.isAdjacentWithFullReturn(2, 3);
+                    incidenceMatrix.isAdjacentWithFullReturn(2, 8);
 
                     // Obtém o conjunto de adjacências do vértice 5
-                    incidenceMatrix.getNodeAdjacency(5);
+                    incidenceMatrix.getNodeAdjacency(6);
 
                     break;
 
